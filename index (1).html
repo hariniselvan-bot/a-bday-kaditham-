@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A special birthday letter, made just for chella ponu .">
+  <meta name="theme-color" content="#3d0a14">
+  <title>Happy Birthday, chella ponu  &#9825;</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88' fill='%23c9a24b'%3E%E2%99%A1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- ══════════ SVG FLOWER LIBRARY (reused everywhere) ══════════ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- single delicate white blossom -->
+      <symbol id="flw" viewBox="-22 -22 44 44">
+        <g fill="#fffdf6">
+          <ellipse cx="0" cy="-12" rx="6.6" ry="11.5"/>
+          <ellipse cx="0" cy="-12" rx="6.6" ry="11.5" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-12" rx="6.6" ry="11.5" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-12" rx="6.6" ry="11.5" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-12" rx="6.6" ry="11.5" transform="rotate(288)"/>
+        </g>
+        <g fill="#f6ead2" opacity=".85">
+          <ellipse cx="0" cy="-10.5" rx="3.4" ry="7" transform="rotate(36)"/>
+          <ellipse cx="0" cy="-10.5" rx="3.4" ry="7" transform="rotate(108)"/>
+          <ellipse cx="0" cy="-10.5" rx="3.4" ry="7" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-10.5" rx="3.4" ry="7" transform="rotate(252)"/>
+          <ellipse cx="0" cy="-10.5" rx="3.4" ry="7" transform="rotate(324)"/>
+        </g>
+        <circle r="4.2" fill="#c9a24b"/>
+        <circle r="1.7" fill="#8a6a25"/>
+      </symbol>
+
+      <!-- branch sprig with blossoms -->
+      <symbol id="sprig" viewBox="0 0 140 230">
+        <path d="M70 228 C65 182 76 142 70 98 C67 72 73 40 70 12" fill="none" stroke="#7c5a43" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M70 152 C50 142 40 122 38 104" fill="none" stroke="#7c5a43" stroke-width="2" stroke-linecap="round"/>
+        <path d="M70 112 C90 102 100 86 102 68" fill="none" stroke="#7c5a43" stroke-width="2" stroke-linecap="round"/>
+        <path d="M56 136 q-14 -3 -18 -17 q15 1 18 17z" fill="#a9a583"/>
+        <path d="M84 96 q14 -4 17 -18 q-15 2 -17 18z" fill="#a9a583"/>
+        <use href="#flw" x="52" y="0"   width="36" height="36"/>
+        <use href="#flw" x="16" y="80"  width="30" height="30" opacity=".95"/>
+        <use href="#flw" x="86" y="46"  width="30" height="30" opacity=".95"/>
+        <use href="#flw" x="52" y="122" width="26" height="26" opacity=".9"/>
+        <circle cx="66" cy="58" r="3" fill="#c9a24b"/>
+        <circle cx="76" cy="78" r="2.4" fill="#c9a24b"/>
+        <circle cx="63" cy="172" r="2.6" fill="#c9a24b"/>
+      </symbol>
+
+      <!-- torn-paper edge filter for the letter & photo mat -->
+      <filter id="roughPaper" x="-6%" y="-6%" width="112%" height="112%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="4" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="16"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div id="petals" class="petals" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ══════════ 1 · HERO — THE BURGUNDY ENVELOPE ══════════ -->
+    <section id="hero" class="screen">
+      <svg class="deco sprig-hero-left" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="deco sprig-hero-right" aria-hidden="true"><use href="#sprig"/></svg>
+
+      <p class="kicker reveal">A special little letter, made just for you.</p>
+      <h1 class="hero-title reveal">Happy Birthday, <em>chella ponu </em> <span class="gold-heart">&hearts;</span></h1>
+
+      <div class="env-wrap reveal" id="heroEnvWrap">
+        <div class="env" id="heroEnvelope">
+          <div class="env-back"></div>
+          <div class="env-letter"><span>For chella ponu  &hearts;</span></div>
+          <div class="env-front"></div>
+          <button class="env-flap" id="heroFlap" aria-label="Open the envelope">
+            <span class="seal" aria-hidden="true">S</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="btn btn-gold reveal" id="openBtn">Open Your Letter <span class="btn-heart">&hearts;</span></button>
+      <p class="hint reveal">psst &mdash; you can also tap the wax seal</p>
+    </section>
+
+    <!-- ══════════ 2 · BIRTHDAY GREETING ══════════ -->
+    <section id="greeting" class="screen">
+      <svg class="deco sprig-corner tl" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="deco sprig-corner br" aria-hidden="true"><use href="#sprig"/></svg>
+
+      <p class="script-line reveal">the envelope is open&hellip;</p>
+      <h2 class="big-title reveal">Happy Birthday, <em>chella ponu !</em></h2>
+      <div class="flourish reveal" aria-hidden="true"></div>
+      <p class="body-text center reveal">
+        Today isn&rsquo;t just a date on the calendar &mdash; it&rsquo;s the day the world quietly
+        became a little softer, a little brighter, a little kinder. Because it gave me you.
+        Here&rsquo;s a tiny corner of the internet, made with all my heart, just to celebrate you.
+      </p>
+      <button class="btn btn-gold reveal" id="toSongBtn">Keep Reading <span class="btn-heart">&hearts;</span></button>
+    </section>
+
+
+    <!-- ══════════ 4 · OUR MEMORIES ══════════ -->
+    <section id="memories" class="screen">
+      <svg class="deco sprig-mem-left" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="deco sprig-mem-right" aria-hidden="true"><use href="#sprig"/></svg>
+
+      <div class="mem-grid">
+        <div class="photo-slot reveal" id="photoSlot">
+          <div class="photo-mat" aria-hidden="true"></div>
+          <!-- 📷 ADD YOUR PHOTO: save it as assets/memory-1.jpg -->
+          <img src="salo.jpeg" alt="A photograph of me and chella ponu " data-local>
+          <div class="placeholder">
+            <div>
+              <span class="ph-heart">&hearts;</span>
+              <p>your photo here</p>
+              <small>add <code>assets/memory-1.jpg</code></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="mem-copy">
+          <h2 class="section-title reveal">Do you remember how this story began?</h2>
+          <div class="flourish left reveal" aria-hidden="true"></div>
+          <p class="body-text reveal">
+            Some stories begin with a single hello &mdash; a message, a laugh, a moment neither of us
+            knew would matter so much. Since then, every chapter with you has been my favorite:
+            the late-night talks, the jokes nobody else understands, the quiet days and the loud ones.
+          </p>
+          <p class="body-text reveal">
+            This little frame is waiting for the photographs that hold those moments &mdash;
+            add our pictures, and let this page keep them safe forever.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 5 · SPECIAL LETTER COVER — CREAM ENVELOPE ══════════ -->
+    <section id="cover" class="screen">
+      <svg class="deco sprig-cover-left" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="deco sprig-cover-right" aria-hidden="true"><use href="#sprig"/></svg>
+
+      <h2 class="script-heading reveal">Special Letter For You</h2>
+      <p class="kicker reveal">one last envelope &mdash; the most important one</p>
+
+      <div class="env-wrap reveal">
+        <div class="env env--cream" id="coverEnvelope">
+          <div class="env-back"></div>
+          <div class="env-letter"><span>read me &hearts;</span></div>
+          <div class="env-front"><div class="scallop" aria-hidden="true"></div></div>
+          <button class="env-flap" id="coverFlap" aria-label="Open the special letter">
+            <span class="seal seal--wine" aria-hidden="true">S</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="btn btn-cream reveal" id="coverBtn">Tap to Open <span class="btn-heart">&hearts;</span></button>
+    </section>
+
+    <!-- ══════════ 6 · THE FINAL LETTER ══════════ -->
+<section id="letter" class="screen">
+
+  <svg class="deco sprig-letter-tl" aria-hidden="true">
+    <use href="#sprig"/>
+  </svg>
+  <svg class="deco sprig-letter-br" aria-hidden="true">
+    <use href="#sprig"/>
+  </svg>
+
+  <div class="float-heart fh1" aria-hidden="true">&hearts;</div>
+  <div class="float-heart fh2" aria-hidden="true">&hearts;</div>
+  <div class="float-heart fh3" aria-hidden="true">&hearts;</div>
+
+  <p class="kicker reveal">for my chella ponnu, on her birthday &hearts;</p>
+
+  <article class="letter-paper reveal" id="letterPaper">
+
+    <p class="salutation">Dear en chella ponnu, ❤️</p>
+
+    <p>
+      Happy Birthday, en azhagu ponnu!
+      <span class="gold-heart">&hearts;</span>
+    </p>
+
+    <p>
+      Innaiku un day diii, en chella ponnu! 🥹💗
+      Unakku naan evlo important place kuduthuruken en heart-la
+      nu words-la sollave mudiyadhu. Nee en best friend mattum
+      illa di, en life-la enakku kedaicha romba precious-aana
+      oru person. Unna en life-la vechurukkuradhu enakku
+      romba happy-ah irukku.
+    </p>
+
+    <p>
+      Namma pesura mokka conversations, reason-e illama
+      sirikkuradhu, chinna chinna sandaigal, random-ah share
+      panra things — idhellame enakku romba special di.
+      Sometimes nee panra chinna chinna things kooda en mood-ah
+      change pannidum. Unkooda irukkumbodhu naan naanaave
+      irukka mudiyudhu. Adhu enakku romba periya vishayam.
+      🫶🏻💕
+    </p>
+
+    <p>
+      En chellam, indha birthday-la irundhu un life-la neraya
+      happiness, peace, success, love ellame kedaikkanum di.
+      Nee aasai padra ellame oru naal kandippa nadakkanum.
+      Un dreams ellathayum achieve pannanum. Nee deserve panra
+      azhagana life unakku kedaikkanum.
+      <span class="gold-heart">&hearts;</span>
+    </p>
+
+    <p>
+      Indha vishayatha mattum eppovume marandhudadha, chellam:
+      nee unakku therinjadha vida romba special. Un value-ah
+      yaaroda opinion vechum measure pannadha. Unna neeye
+      doubt pannadha. Unakku ellame late-ah nadandhaalum,
+      adhunala nee less deserving nu artham illa.
+      Un journey unnodadhu, un time-la unakku ellame azhaga
+      nadakkum.
+    </p>
+
+    <p>
+      Nee strong-ah irukkanum nu avasiyam illa every single day.
+      Sometimes tired-ah irukkalam, azhalam, confuse aagalam,
+      edhuvum puriyama irukkalam. Adhellame okay di.
+      Ellathayum nee thaniya face pannanum nu illa.
+      Un feelings important, un happiness important,
+      and most importantly, <strong>NEE IMPORTANT.</strong>
+      🫂❤️
+    </p>
+
+    <p>
+      En chella ponnu always happy-ah irukkanum nu naan aasai
+      padren. Aana happy-ah mattum illa di — nee loved-ah feel
+      pannanum, respected-ah feel pannanum, safe-ah feel
+      pannanum. Unna neeye romba love pannanum.
+      Unakku pudicha life-ah nee vaazhanum.
+      Yaarukkagavum un real self-ah maathika vendam.
+      Nee nee-ah irukkuradhe podhum.
+    </p>
+
+    <p>
+      Namma life-la evlo changes vandhaalum, evlo busy
+      aanaalum, namma memories, namma sirippu, namma loosu
+      thanamana pechu ellame eppovume special-ah irukkanum.
+      Innum neraya memories create pannanum, neraya places
+      poganum, neraya photos edukkanum. Future-la indha
+      moments-ah nenachu thirumba sirikkanum di.
+      🥹📸💗
+    </p>
+
+    <!-- AFFIRMATIONS -->
+    <div class="affirmations">
+      <p class="affirmation-heading">
+        A little reminder for my girl
+        <span class="gold-heart">&hearts;</span>
+      </p>
+
+      <p>
+        C hellam, idha nee eppo padichaalum,
+        un mela unakku konjam extra love varanum.
+        These words are for you, always.
+      </p>
+
+      <div class="affirmation-list">
+        <p>♡ Naan lovable.</p>
+        <p>♡ Naan enough.</p>
+        <p>♡ Naan beautiful inside and outside.</p>
+        <p>♡ Naan en dreams achieve panna capable.</p>
+        <p>♡ Nalla vishayangal en life-la nadakka naan deserve panren.</p>
+        <p>♡ Enakku peace, happiness, genuine love ellame deserve aagum.</p>
+        <p>♡ Ennaala mudiyum.</p>
+        <p>♡ En time kandippa varum.</p>
+        <p>♡ Naan enna namburen.</p>
+        <p>♡ Naan enna love panren.</p>
+        <p>♡ En life-la innum evlo azhagana moments varapogudhu!</p>
+      </div>
+
+      <p class="affirmation-ending">
+        Always remember, chellam:
+        unakku nee irukka, un dreams irukku, un future irukku.
+        Unna neeye nambikka oda paaru.
+        Unakku innum neraya azhagana vishayangal kaathuttu irukku.
+        🧿🤍
+      </p>
+    </div>
+
+    <p>
+      Indha words-ah nee eppo padichaalum, un mela unakku
+      konjam extra love varanum di. Unna neeye underestimate
+      pannumbodhu, indha letter-ah thirumba padi.
+      Unakku evlo potential irukku, evlo azhagana heart
+      irukku nu nyabagam vechuko.
+    </p>
+
+    <p>
+      Happy Birthday once again, en chella ponnu!
+      🎂💋❤️
+    </p>
+
+    <p>
+      Nee eppovume ippadiye sirichittu, sandhoshama,
+      un dreams-ah chase pannittu irukkanum. Un life-la
+      nee aasai padra ellame kedaikkanum. Unakku kashtamaana
+      days vandhaalum, adha thaandi nee innum strong-ah,
+      confident-ah, happy-ah grow aaganum.
+    </p>
+
+    <p>
+      Thank you di en life-la irukkuradhukku.
+      En best friend-ah irukkuradhukku. Enkooda un time,
+      un stories, un happiness ellathayum share pannuradhukku.
+    </p>
+
+    <p>
+      I love you so much, chella ponnu.
+      Nee enakku just oru best friend illa di…
+      nee en heart-ku romba close-ah irukkura oru special
+      person. Eppovume happy-ah iru, en azhagu ponnu.
+      Unakku indha world-la irukkura ella nalla vishayangalum
+      kedaikkanum.
+      <span class="gold-heart">&hearts;</span>
+    </p>
+
+    <div class="signature">
+      <p class="sig-static">With all my love,</p>
+      <p class="sig-script">Harini (ammu) &hearts;</p>
+      <p class="sig-static">Forever un bestie ♡</p>
+    </div>
+
+  </article>
+</section>
+    <footer class="footer">
+      <div class="flourish" aria-hidden="true"></div>
+      <p>made with love &middot; happy birthday, chella ponu  <span class="gold-heart">&hearts;</span></p>
+    </footer>
+
+  </main>
+
+  <audio id="songAudio" src="assets/favorite-song.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
